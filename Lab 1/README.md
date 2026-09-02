@@ -103,6 +103,29 @@ wasn't clear.
 **Who were the other groups you kibitzed with? Add links to their project pages here.**
 **Summarize the feedback you got from your partners here.**
 
+**Group 1: [Pepper's Ghost](https://github.com/mc3223/Peppers-Ghost/blob/Fall2026/Lab%201/light-and-interaction.MOV)**
+What I liked:
+- It was cool that they got it to work, and the ghost image was super clear!
+- They put in a lot of effort with the setup to create the ghost
+What I wished for:
+- It would've been cooler if we could'nt see the end of the acryllic "glass" in the video; it would make the ghost effect look more realistic
+- It would've been cool if it the room was completely dark to better see the effect
+
+**Group 2: [Project Blinkenlights](https://github.com/Elliot-verified/Interactive-Lab-Hub/blob/Fall2026/Lab%201/README.md)**
+What we liked:
+- it was a very cool, engaging interaction
+- latency was really good, the visuals updated super fast
+- also liked how easy it is to use; you can interact from any phone
+What could have been better:
+- would be cool if you could make ascii art
+- would be fun if you can change colors / customize
+
+**Group 3:**
+
+What I liked:
+
+What I wished for:
+
 ## Remix, Update, or Critique the Master
 
 Now that you understand your masterwork from the inside, respond to it. Do the
