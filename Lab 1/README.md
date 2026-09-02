@@ -100,9 +100,6 @@ videos, and give them reactions and feedback: tell them what you saw happening,
 guess the masterwork and the goals of the characters, and ask about anything that
 wasn't clear.
 
-**Who were the other groups you kibitzed with? Add links to their project pages here.**
-**Summarize the feedback you got from your partners here.**
-
 **Group 1: [Pepper's Ghost](https://github.com/mc3223/Peppers-Ghost/blob/Fall2026/Lab%201/light-and-interaction.MOV)**
 What I liked:
 - It was cool that they got it to work, and the ghost image was super clear!
@@ -120,11 +117,13 @@ What could have been better:
 - would be cool if you could make ascii art
 - would be fun if you can change colors / customize
 
-**Group 3:**
-
-What I liked:
-
-What I wished for:
+**Group 3: [Laser Tag](https://github.com/mado0512/Interactive-Lab-Hub/tree/Fall2026/Lab%201)**
+what we liked:
+- very clear what was happening, we were able to identify the masterwork before even looking at the repo readme
+- the glow of the light was super luminous lol
+improvements:
+- some sound/shooting noise to indicate that the person has been tagged
+- when the person is tagged, the light goes green -- instead we recommend you choose red or some other color, cause green usually indicates something positive
 
 ## Remix, Update, or Critique the Master
 
