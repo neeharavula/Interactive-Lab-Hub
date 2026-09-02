@@ -100,28 +100,28 @@ videos, and give them reactions and feedback: tell them what you saw happening,
 guess the masterwork and the goals of the characters, and ask about anything that
 wasn't clear.
 
-**Group 1: [Pepper's Ghost](https://github.com/mc3223/Peppers-Ghost/blob/Fall2026/Lab%201/light-and-interaction.MOV)**
+**Group 1: [Pepper's Ghost](https://github.com/mc3223/Peppers-Ghost/blob/Fall2026/Lab%201/light-and-interaction.MOV)**<br>
 What I liked:
 - It was cool that they got it to work, and the ghost image was super clear!
 - They put in a lot of effort with the setup to create the ghost
-What I wished for:
+What I wished for:<br>
 - It would've been cooler if we could'nt see the end of the acryllic "glass" in the video; it would make the ghost effect look more realistic
 - It would've been cool if it the room was completely dark to better see the effect
 
-**Group 2: [Project Blinkenlights](https://github.com/Elliot-verified/Interactive-Lab-Hub/blob/Fall2026/Lab%201/README.md)**
+**Group 2: [Project Blinkenlights](https://github.com/Elliot-verified/Interactive-Lab-Hub/blob/Fall2026/Lab%201/README.md)**<br>
 What we liked:
 - it was a very cool, engaging interaction
 - latency was really good, the visuals updated super fast
 - also liked how easy it is to use; you can interact from any phone
-What could have been better:
+What could have been better:<br>
 - would be cool if you could make ascii art
 - would be fun if you can change colors / customize
 
-**Group 3: [Laser Tag](https://github.com/mado0512/Interactive-Lab-Hub/tree/Fall2026/Lab%201)**
+**Group 3: [Laser Tag](https://github.com/mado0512/Interactive-Lab-Hub/tree/Fall2026/Lab%201)**<br>
 what we liked:
 - very clear what was happening, we were able to identify the masterwork before even looking at the repo readme
 - the glow of the light was super luminous lol
-improvements:
+improvements:<br>
 - some sound/shooting noise to indicate that the person has been tagged
 - when the person is tagged, the light goes green -- instead we recommend you choose red or some other color, cause green usually indicates something positive
 
