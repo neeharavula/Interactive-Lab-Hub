@@ -3,7 +3,7 @@ for [Interactive Device Design](https://github.com/FAR-Lab/Developing-and-Design
 
 [Lab 1. Recreating the Masters](Lab%201/)
 
-Lab 2. Interactive Prototyping: The Clock of Pi
+[Lab 2. Interactive Prototyping: The Clock of Pi](Lab%202/)
 
 Lab 3. Chatterboxes
 
