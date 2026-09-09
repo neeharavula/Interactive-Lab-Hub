@@ -42,7 +42,9 @@ Before the 90s, there was no simple way to read a watch in the dark. People had 
 **Iteration 3:** After acting out the scene (see Part B below) and playing around with the Tinkerbelle tool, we had to redesign the interaction to work around limitations of the tool and satisfy more use cases (ex: alert of danger nearby, choosing an alien form, turning into the alien form).<br><br>
 <img width="2155" height="1666" alt="storyboard_3" src="https://github.com/user-attachments/assets/14c954e1-1c12-4ead-8805-fb97dc526228" />
 
-**TODO: Summarize the feedback you got here.**
+### Feedback from peers
+- **What they liked:** watch costume, use of different colored lighting with different meanings, creative Ben 10 analogy<br>
+- **Improvements:** make the light timing for the alien selection action more in sync
 
 ## Part B. Act out the Interaction
 
@@ -66,7 +68,7 @@ We used the Tinkerbelle tool, where the phone screen acted as the indiglo light 
 
 One of us hid off-camera as the wizard, watching Ben 10's actions and using the Tinkerbelle controls on the laptop to time the light interactions. We recorded using Zoom.
 
-See our first wizarded attempt here: https://www.youtube.com/watch?v=42269kgHxoI
+**See our first wizarded attempt here: [Timex Indiglo - First Take](https://www.youtube.com/watch?v=42269kgHxoI)**
 
 ## Part E. Costume the Device
 
@@ -78,7 +80,7 @@ We wanted to costume the phone to look more like a watch for a more realistic ex
 
 ## Part F. Record
 
-**Video Sketch:** https://www.youtube.com/watch?v=3fDFrM_SdIQ 
+**Video Sketch: [Timex Indiglo - Video Sketch](https://www.youtube.com/watch?v=3fDFrM_SdIQ)**
 
 **Our aim:** Viewers who know Ben 10 will recognize the importance of his watch and its light interactions, but viewers who may not be familiar can still indentify the role that the indiglo light plays in helping the hero save the day.
 
@@ -93,62 +95,44 @@ We wanted to costume the phone to look more like a watch for a more realistic ex
 
 *This describes the second week's work for this lab activity.*
 
-## Prep (before the next lab)
+## Prep
 
-Find three other groups. (How? Maybe Slack?) Visit their Lab Hub pages, watch their
-videos, and give them reactions and feedback: tell them what you saw happening,
-guess the masterwork and the goals of the characters, and ask about anything that
-wasn't clear.
+We got to play around with and review the following projects from our peers:
 
 **Group 1: [Pepper's Ghost](https://github.com/mc3223/Peppers-Ghost/blob/Fall2026/Lab%201/light-and-interaction.MOV)**<br>
-What I liked:
+What we liked:
 - It was cool that they got it to work, and the ghost image was super clear!
 - They put in a lot of effort with the setup to create the ghost
-What I wished for:<br>
-- It would've been cooler if we could'nt see the end of the acryllic "glass" in the video; it would make the ghost effect look more realistic
-- It would've been cool if it the room was completely dark to better see the effect
+
+What we wished for:<br>
+- Changing the angle so you can't see the end of the acrylic "glass" in the video would make the ghost effect look more realistic
+- It would've been cool if the room was completely dark to better see the effect
 
 **Group 2: [Project Blinkenlights](https://github.com/Elliot-verified/Interactive-Lab-Hub/blob/Fall2026/Lab%201/README.md)**<br>
 What we liked:
-- it was a very cool, engaging interaction
-- latency was really good, the visuals updated super fast
-- also liked how easy it is to use; you can interact from any phone
-What could have been better:<br>
-- would be cool if you could make ascii art
-- would be fun if you can change colors / customize
+- A very cool, engaging interaction!
+- Latency was very sharp; the visuals updated super fast
+- Easy it is to use; you can interact from any phone
+
+What we wished for:<br>
+- Expand to allow users to make ascii art
+- A change colors / customize feature
 
 **Group 3: [Laser Tag](https://github.com/mado0512/Interactive-Lab-Hub/tree/Fall2026/Lab%201)**<br>
-what we liked:
-- very clear what was happening, we were able to identify the masterwork before even looking at the repo readme
-- the glow of the light was super luminous lol
-improvements:<br>
-- some sound/shooting noise to indicate that the person has been tagged
-- when the person is tagged, the light goes green -- instead we recommend you choose red or some other color, cause green usually indicates something positive
+What we liked:
+- very clear what was happening: we were able to identify the masterwork before even looking at the repo readme
+- The glow of the light was super luminous
 
-## Remix, Update, or Critique the Master
+What we wished for:<br>
+- Recharge might be a little unclear to those unfamiliar with laser tag
 
-Now that you understand your masterwork from the inside, respond to it. Do the
-recreation again, but this time make it your own — pick one of these moves (or
-combine them):
+## Remixing the master
 
-1. **Remix the modality.** Your recreation no longer has to (just) use light. Use
-   vibration, sound, motion, heat — whatever best carries the interaction. Feel
-   free to fork and modify the Tinkerbelle code. (Add your updates to this lab's folder!)
-2. **Update it.** Redesign the piece for today's context, or for a setting its
-   creators never imagined (the piece with roommates in the room, with children
-   present, on a phone, in a car).
-3. **Fix its weaknesses.** You identified this master's strengths and weaknesses
-   in Part 0 — now address a weakness, or push a strength further.
+We took our initial prototype to the next level by using an Apple Watch to better simulate the effect of the Timex Indiglo. It was initially a challenge to get the Tinkerbelle tool to work with the watch interface, but we found a mirroring workaround to display the webpage and control the light from our laptop. In addition, we added sound effects to make the interaction feel more intuitive and engaging.
 
-We will grade this second pass with an emphasis on **creativity** and on how well
-your response engages with what your master was really doing.
-
-**Document everything here — especially the storyboard and video. Photos of the
-prototype are great too.**
+**Watch the remix here! [Timex Indiglo - Remixed](https://youtu.be/dqFq2sC3gCI)**
 
 ---
-
-
 
 *Assignment lineage: this lab merges "Staging Interaction" (Interactive Lab Hub)
 with "Recreating the Masters" (Interaction Design Studio, Profs. Scott Minneman &
