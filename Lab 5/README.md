@@ -86,6 +86,20 @@ Then press q to quit and run it again with a flag. Each one changes a single thi
 
 \*\*\***Include a short video or screenshots of your experiments with the person detection. Write down three situations where it did not see you, or saw a person who was not there, and what you think the cause was.**\*\*\*
 
+Normal Run:
+<video controls src="normal.mp4" title=""></video>
+
+Conf 0.2 Run:
+<video controls src="conf-0.2.mov" title="Title"></video>
+
+Conf 0.7 Run:
+<video controls src="conf-0.7.mov" title="Title"></video>
+
+All Run:
+<video controls src="all.mov" title="Title"></video>
+
+Headless Run:
+<video controls src="headless.mov" title="Title"></video>
 
 
 ## Part C. 
@@ -113,7 +127,7 @@ Try the two main features of this script: 1) pinching for percentage control (th
 Consider how you might use this position based approach to create an interaction, and write how you might use it on either face, hand or body pose tracking.
 
 \*\*\***Include a screenshot or short video of the hand pose demo, and write how you might use face, hand or body pose tracking in your observant system.**\*\*\*
-
+<video controls src="partc.mp4" title="Title"></video>
 
 ## Part D. 
 ### Reason: run Qwen on the Pi with Ollama
