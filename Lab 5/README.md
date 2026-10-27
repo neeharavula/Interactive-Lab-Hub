@@ -103,6 +103,12 @@ Observations:
 
 https://github.com/user-attachments/assets/feffde71-29b8-4efa-85b6-00f44571db8b
 
+Interaction ideas:
+- Hand pose as a bedtime ritual trigger: Instead of using a button or touch sensor, we could use the Quiet Coyote hand pose to trigger the bedtime interaction
+- Hand pose as morning input: We could use the finger expand gesture as a rating system to rate how the night's sleep went
+- Face orientation: We could use face tracking to determine whether a user is alert/awake or not (ex: the user is awake if they are facing the camera and their eyes are visibly open)
+- Body pose: We could track whether a person is laying down or if they are upright to determine if they are sleeping or awake respectively
+
 
 ## Part D. 
 ### Reason: run Qwen on the Pi with Ollama
