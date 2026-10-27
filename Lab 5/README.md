@@ -65,25 +65,6 @@ I) [Design the interaction when awake](#part-i)
 ## Part B. 
 ### See: recognize people in real time with YOLO
 
-YOLO is an *object detector*: it finds every person, cup, cat and so on (the 80 [COCO](https://cocodataset.org/) classes), draws a box around each, and gives a confidence. For an observant system that is exactly what you want: *how many*, *where*, *how sure*.
-
-Connect your webcam, connect to your Pi through **VNC** (the script opens a window), and run the person detector. Read `yolo_person.py` first; the loop at the bottom is the whole idea.
-
-```
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python yolo_person.py
-```
-
-While it runs, walk in and out of the frame, sit down, turn your back, hold up a photo of a person on your phone. Watch the confidence number on the box change with each.
-
-Then press q to quit and run it again with a flag. Each one changes a single thing:
-
-```
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python yolo_person.py --conf 0.2     # lower the bar: see what the model is unsure about
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python yolo_person.py --conf 0.7     # raise the bar: see what you lose
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python yolo_person.py --all          # all 80 classes, not only people: what else is on your desk, and what does it get wrong?
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python yolo_person.py --headless     # no window, only the printed readings: how it runs over ssh, and at night
-```
-
 \*\*\***Include a short video or screenshots of your experiments with the person detection. Write down three situations where it did not see you, or saw a person who was not there, and what you think the cause was.**\*\*\*
 
 Normal Run:
@@ -108,31 +89,15 @@ Headless Run:
 https://github.com/user-attachments/assets/206a35e1-6907-4a61-a05e-ca643d327f8e
 
 
+Observations:
+- In the `--conf 0.2` experiment, while walking around, YOLO briefly detected a nonexistent person at the side of the frame with a confidence of 0.37. Background shapes or shadows may have resembled a person, and the lower threshold allowed this uncertain detection to appear.
+- In the `--conf 0.7` experiment, for a few seconds, YOLO did not draw a box correctly. Movement, changes in pose, or partial visibility may have lowered its confidence below 0.7, causing the stricter threshold to filter out the detection.
+- In headless mode, the printed readings briefly showed no person detection. Movement or an unfamiliar viewing angle may have caused a temporary detection failure. Headless mode only removes the display, rather than change the model’s accuracy, so a possible explanation is that moving or turning briefly made the body harder to recognize, lowering the model’s confidence below the detection threshold.
+- In `--all` mode, YOLO correctly identified a chair but briefly labeled something at the side as a refrigerator. Background edges or rectangular shapes may have resembled features the model associates with refrigerators.
 
 
 ## Part C. 
 ### See more: hands and pose with MediaPipe
-
-YOLO tells you that a person is there. Google's [MediaPipe](https://mediapipe.dev/) tells you what their hands and body are doing: face, hand and body pose detection, fast on the Pi.
-
-![Media pipe](Readme_files/mp.gif)
-
-The demo plays a looping audio file, so make the helper script executable first:
-
-```
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ chmod +x loop_audio.sh
-```
-
-Connect your webcam, connect to your Pi through **VNC**, and run the hand pose script:
-(***it will not work if you use ssh from your laptop***)
-
-```
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python hand_pose.py
-```
-
-Try the two main features of this script: 1) pinching for percentage control (the thumb-to-index distance sets the volume), and 2) "[Quiet Coyote](https://www.youtube.com/watch?v=qsKlNVpY7zg)" for instant percentage setting (the gesture mutes it). Notice how this example uses hardcoded positions and relates those positions with a desired set of events, in `hand_pose.py`: a hand is 21 landmark coordinates, and an *event* is a rule you write over them. That is the same job as `interpret()` in Part E.
-
-Consider how you might use this position based approach to create an interaction, and write how you might use it on either face, hand or body pose tracking.
 
 \*\*\***Include a screenshot or short video of the hand pose demo, and write how you might use face, hand or body pose tracking in your observant system.**\*\*\*
 
@@ -142,71 +107,50 @@ https://github.com/user-attachments/assets/feffde71-29b8-4efa-85b6-00f44571db8b
 ## Part D. 
 ### Reason: run Qwen on the Pi with Ollama
 
-Talk to the model in the terminal first. Qwen3 models "think" before they answer, which is slow on a Pi, so turn it off. Then ask about something you can check:
-
-```
-pi@raspberrypi:~ $ ollama run qwen3.5:0.8b
->>> /set nothink
->>> Tell me a bit about the history of Roosevelt Island. Three sentences.
->>> /bye
-```
-
-Roosevelt Island is a good first question because you know the ground truth: it was Blackwell's Island, then Welfare Island, got its current name in 1973, and Cornell Tech opened on it in 2017. Count how many of the model's facts are true.
-
-From Python, qwen requests can be triggered by the `ask_qwen.py` script. It turns thinking off, tells the model to answer in at most three sentences, and cuts it off after 120 tokens (`--max-tokens` changes that), because a small model left alone writes an essay. Read the script, then run:
-
-```
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python ask_qwen.py "Tell me a bit about the history of Roosevelt Island."
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python ask_qwen.py --model qwen3:0.6b "Tell me a bit about the history of Roosevelt Island."
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python ask_qwen.py --image snap.jpg "What is in this photo?"
-```
-
-Things in the [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md) worth knowing:
-
-* `think: false` skips the reasoning trace. Always, on a Pi. `ask_qwen.py` sends it on every request; `--think` turns the trace back on for one question, so you can see what you are skipping and how long it takes.
-* `format` makes the model answer as JSON with the fields you name (`--json`). Handy when a display or a servo has to read the answer.
-* `images` sends a photo along with the prompt (`--image snap.jpg`, the photo from Part A). `qwen3.5:0.8b` can look at pictures.
-
-A 0.8B model is slow and sometimes wrong. It will invent events that are not in the data and agree with a wrong premise. Give it the data, keep its job narrow, and decide what the device does when the model is unsure.
-
 \*\*\***Ask Qwen three questions to answer. Paste the questions, the answers and how long each took. Try one of them with `qwen3:0.6b` and compare.**\*\*\*
 
-<details>
-  Q&A here
-</details>
+We asked `qwen3.5:0.8b` three questions through `ask_qwen.py` (thinking off, three-sentence instruction, 120-token cap) and repeated the first with `qwen3:0.6b`.
+
+**Q1: "Tell me a bit about the history of Roosevelt Island."** (factual recall)
+
+**qwen3.5:0.8b (20.7 s)**
+> Roosevelt Island was originally built as a private residence for President Theodore Roosevelt, who commissioned it to house his family and office. The island's development began in 1907 when the city purchased the land from the Hudson River Company, allowing the construction of the iconic "Gilded Cage" hotel complex.
+
+**qwen3:0.6b (16.5 s)**
+> Roosevelt Island, located in the United States, has a rich history dating back to the early 19th century. It was initially a military base for the Union Army during the Civil War, and it became a significant naval base in the 19th and early 20th centuries. The island played a crucial role in the Pacific War and was home to several important military personnel, including notable figures like Admiral Nelson. Today, Roosevelt Island is a peaceful and historic site, preserving the legacy of those who once called it home.
+
+| Ground-truth fact | 0.8b | 0.6b |
+|---|---|---|
+| Formerly Blackwell's Island | ❌ | ❌ |
+| Then Welfare Island | ❌ | ❌ |
+| Renamed in 1973 | ❌ | ❌ |
+| Cornell Tech opened in 2017 | ❌ | ❌ |
+
+Both models scored 0/4 and confidently invented a history. The 0.8b model named the wrong Roosevelt (the island is named for FDR), put the island on the Hudson (it is in the East River), and made up a "Hudson River Company" and a "Gilded Cage" hotel. The 0.6b model was faster but no more accurate: it invented a Civil War Union Army base, a naval base, a role in the Pacific War and Admiral Nelson (a British admiral who died in 1805), and it ignored the three-sentence limit. Its only roughly true claim was that the island's history goes back to the early 19th century.
+
+**Q2: "What is in this photo?"**
+
+> A man with glasses and a beard is taking a selfie in a dimly lit room.
+
+Correct, including the selfie: the photo was taken holding up the webcam. This was the slowest question because the model also has to process the image, but it was the only fully accurate answer. The difference from Q1 is that here the model had real data to describe instead of recalling facts from memory.
+
+**Q3: "Why did Cornell Tech move off Roosevelt Island in 2010?"** (false premise, 7.8 s)
+
+> Cornell Tech moved to Roosevelt Island in 2010 because the city's zoning laws made it impossible for a new university campus to be built there, forcing them to relocate to nearby areas.
+
+The model accepted the false premise instead of correcting it. Cornell Tech never moved off the island; it opened there in 2017. The answer also contradicts itself (it "moved to" the island because it was impossible to build there) and invents a zoning law. This was the fastest answer (7.8 s) because the model was already loaded and the reply was short, which suggests the earlier times include model loading.
+
+**Takeaways**
+- On a Pi 5, answers take roughly 8–33 s depending on whether the model is already loaded, how long the answer is, and whether there is an image.
+- The smaller `qwen3:0.6b` was a little faster but no more accurate, and it followed the length instruction less well.
+- Asked to recall facts, both models invent confidently; given a false premise, the model plays along. Given actual data (the photo), it was accurate.
+- For our observant system this means Qwen should never answer from its own knowledge. It should only summarize the data we give it (the YOLO log), with a narrow job and a fallback for when the data is empty or unclear.
 
 
 ## Part E. 
 ### Connect: from YOLO readings to Qwen reasoning
 
-An observant system is a pipeline: a **detector** turns pixels into boxes, an **interpreter** turns boxes into readings in words ("one person, left, close"), the readings pile up in a **log**, and a **reasoner** answers a question about the log. The language model never sees pixels, only the words you chose in the interpreter. That makes the interpreter the most important design decision in the system.
-
-`yolo_to_qwen.py` is the pipeline in one file, one function per stage. Read it before you run it:
-
-* `interpret(r)` is the interpreter. It takes one YOLO result and returns one reading. A person is *left*, *center* or *right* by which third of the frame the middle of their box is in, and *close* if the box is taller than 60% of the frame, *far* otherwise. The reading is a string like `1 person(s) at center/close`, or `nobody`. Fifteen lines, and they decide everything the model can know.
-* `watch(seconds)` is the detector and the log. Twice a second it reads a frame, runs YOLO on it and calls `interpret()`. A time-stamped reading goes into the log **only when it differs from the previous one**, so a minute of sitting still is one line, not 120.
-* `ask(log, question)` is the reasoner. It pastes the log and your question into one prompt, tells Qwen to answer in at most three sentences using only what is in the log, and sends it to Ollama with thinking off.
-
-Run it through VNC and a window opens with YOLO's boxes, the current reading and the seconds left. Press q to stop watching early. Over plain ssh add `--headless` and you get the same thing minus the window.
-
-```
-(.venv) pi@raspberrypi:~/Interactive-Lab-Hub/Lab 5 $ python yolo_to_qwen.py
-```
-
-It watches for a minute, saves the log to `watch_log.txt` and asks Qwen the default question. The terminal looks something like this:
-
-```
-14:02:11 nobody
-14:02:19 1 person(s) at right/far
-14:02:24 1 person(s) at center/close
-14:02:51 nobody
-
-4 lines saved to watch_log.txt
-asking Qwen...
-
-Qwen (18.4 s):
-One person came in from the right, moved close to the camera, and left after about half a minute. ...
-```
+![alt text](image.png)
 
 ---
 
